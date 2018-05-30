@@ -1,0 +1,97 @@
+primero instalar Atom, lenguaje blade y laravel package para que reconosca la sintaxis
+
+imprimir variables de entorno
+ dd(env(version));
+
+
+
+@foreach ($users as $user)
+    <li>{{ $user }}</li>
+@endforeach
+
+
+@if (! empty($users))
+    ...
+@elseif ($users < 3)
+    <p>Hay menos de 3 usuarios registrados.</p>
+@else
+    <p>No hay usuarios registrados.</p>
+@endif
+
+
+@for ($i = 0; $i < 10; $i++)
+    El valor actual es {{ $i }}
+@endfor
+
+
+
+//helper (permite obtener la ruta dinamica al archivo)
+util para:
+
+<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+
+se declara una seccion o se sobreescribe
+@section('nombreseccion')
+<p>html aqui.</p>
+@endsection
+
+crea y muestra la seccion generalmente usada en layout para definir
+ una seccion base que puede ser sobreescrita
+@section('nombreseccion')
+<p>html aqui.</p>
+@show
+
+imprime (generalmente en layout) la seccion creada en otro documento que extiende de layout.
+@yield('nombreseccion')
+
+llama lo que esta en la seccion padre y la imprime
+@parent
+
+crea las migraciones
+php artisan migrate
+
+recordar configurar la conexion a la base de datos en .env
+
+
+para ejecutar comandos php artisan se debe instalar primero wamp o xampp y
+luego composer, abrimos la consola cmd nos situamos en el directorio:
+c:/wamp64/www/  o  c:/xampp/htdocs/
+alli creamos el proyecto laravel.
+accedemos al directorio del proyecto anteriormente creado y
+podremos crear migraciones
+
+
+crea todas las migraciones
+php artisan migrate
+
+
+////EN LOS SIGUIENTES 2 COMANDOS SE PIERDEN LOS REGISTROS
+QUE CONTENGAN LAS TABLAS
+borra todas las migraciones en orden inverso
+php artisan migrate:reset
+
+
+borra y crea todas las migraciones
+((ejecuta  metodo down y luego up) util para cuando modificamos la estructura de la tabla)
+php artisan migrate:refresh
+
+borra y crea todas las migraciones
+((salta el metodo down y elimina directamente )
+ util para cuando modificamos la estructura de la tabla)
+php artisan migrate:fresh
+
+////LOS SIGUIENTES 2 COMANDOS SON EMPLEADOS GENERALMENTE
+PARA ALTERAR UNA TABLA YA EN MARCHA ON ALGUN CAMPO AGREGADO
+POR EJEMPLO, SIN PERDER LOS REGISTROS
+crear una migraciones (recordar cambiar el
+metodo create (del Facade schema) por
+table en caso de alterar la tabla)
+php artisan make:migration add_profession_to_users
+
+deshace la ultima migracion
+php artisan migrate:rollback
+
+
+crear clave foranea
+$table->foreign('nombrecampo')->references('idforaneo')->on('tabla');
