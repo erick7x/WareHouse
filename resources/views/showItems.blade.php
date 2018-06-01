@@ -5,7 +5,7 @@
 @section('content')
 @if (!empty($updateSuccess))
   {{ $updateSuccess }}
-  
+
 @endif
 
   <table>
@@ -15,7 +15,7 @@
         <td>Cantidad:</td>
         <td>Unidad:</td>
         <td>Precio:</td>
-        <td>Acción</td>
+        <td></td>
 
       </th>
     </thead>

@@ -2,7 +2,9 @@
 
 @section('content')
 
-  
+  @if (!empty($error))
+    <h3>Debe llenar todos los campos</h3>
+  @endif
 
   <form action="updateItem" method="post" >
     {{ csrf_field() }}

@@ -24,12 +24,6 @@ class WarehouseController extends Controller
         'quantity' => 'required',
         'unity' => 'required',
         'price' => 'required'
-      ],[
-        'itemName.required' => 'El campo Nombre del artículo es obligatorio',
-        'quantity.required' => 'El campo Cantidad es obligatorio',
-        'unity.required' => 'El campo Unidad es obligatorio',
-        'price.required' => 'El campo Precio es obligatorio',
-        'itemName.unique' => 'El Nombre del artículo ingresado ya existe'
       ]);
 
       Item::create([
@@ -45,13 +39,25 @@ class WarehouseController extends Controller
     }
 
     public function updateItem(){
-                  $id=$_REQUEST['id'];
-                  $item = Item::find($id);
-                  $item->itemName = $_REQUEST['itemName'];
-                  $item->quantity = $_REQUEST['quantity'];
-                  $item->unity = $_REQUEST['unity'];
-                  $item->price = $_REQUEST['price'];
-                  $item->save();
+
+
+      if (strlen($_REQUEST['itemName'])!=0 && strlen($_REQUEST['quantity'])!=0 && strlen($_REQUEST['unity'])!=0 && strlen($_REQUEST['price'])!=0) {
+
+        $id=$_REQUEST['id'];
+        $item = Item::find($id);
+        $item->itemName = $_REQUEST['itemName'];
+        $item->quantity = $_REQUEST['quantity'];
+        $item->unity = $_REQUEST['unity'];
+        $item->price = $_REQUEST['price'];
+        $item->save();
+      }else {
+        $id = $_REQUEST['id'];
+        $item= Item::find($id);
+
+        $error="Debe llenar todos los campos";
+        return view('editItem', compact('item','error'));
+      }
+
 
 
       $items = Item::all();
@@ -69,7 +75,7 @@ class WarehouseController extends Controller
     public function editItem(){
       $id = $_REQUEST['id'];
       $item= Item::find($id);
-      
+
       return view('editItem', compact('item'));
     }
 

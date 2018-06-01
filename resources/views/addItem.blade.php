@@ -4,14 +4,8 @@
 
   @if ($errors->any())
 
-    <h3>Corregir los siguientes errores:</h3>
-    <ul>
+    <h3>Debe llenar todos los campos</h3>
 
-      @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-      @endforeach
-
-    </ul>
   @endif
 
       <form method="post" action="store">
