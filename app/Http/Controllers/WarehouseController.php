@@ -15,7 +15,7 @@ class WarehouseController extends Controller
   }
   public function addItem(){
 
-      return view('addItem');
+      return view('Items/addItem');
   }
 
     public function store(){
@@ -34,7 +34,7 @@ class WarehouseController extends Controller
         'price' => $data['price'],
       ]);
 
-      return view('addItem');
+      return view('Items/addItem');
 
     }
 
@@ -55,28 +55,28 @@ class WarehouseController extends Controller
         $item= Item::find($id);
 
         $error="Debe llenar todos los campos";
-        return view('editItem', compact('item','error'));
+        return view('Items/editItem', compact('item','error'));
       }
 
 
 
       $items = Item::all();
       $updateSuccess="Producto actualizado correctamente";
-      return view('showItems', compact('items','updateSuccess'));
+      return view('Items/showItems', compact('items','updateSuccess'));
 
     }
 
     public function showItems(){
 
       $items = Item::all();
-      return view('showItems', compact('items'));
+      return view('Items/showItems', compact('items'));
     }
 
     public function editItem(){
       $id = $_REQUEST['id'];
       $item= Item::find($id);
 
-      return view('editItem', compact('item'));
+      return view('Items/editItem', compact('item'));
     }
 
     public function deleteItem(){
@@ -88,7 +88,7 @@ class WarehouseController extends Controller
 
 
       $items = Item::all();
-      return view('showItems', compact('items'));
+      return view('Items/showItems', compact('items'));
 
     }
 
