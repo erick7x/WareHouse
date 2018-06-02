@@ -12,9 +12,17 @@
 */
 
 Route::get('/', 'WarehouseController@index');
+
+//items
 Route::get('/addItem', 'WarehouseController@addItem');
 Route::get('/showItems', 'WarehouseController@showItems');
 Route::post('/editItem', 'WarehouseController@editItem');
 Route::post('/updateItem', 'WarehouseController@updateItem');
 Route::post('/deleteItem', 'WarehouseController@deleteItem');
 Route::post('/store', 'WarehouseController@store');
+Route::get('/store', 'WarehouseController@addItem');
+
+//catalogue
+Route::get('/addCategory', 'WarehouseController@addCategory');
+Route::post('/storeCategory', 'WarehouseController@storeCategory');
+Route::get('/storeCategory', 'WarehouseController@addCategory');

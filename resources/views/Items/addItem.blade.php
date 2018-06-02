@@ -2,6 +2,11 @@
 
 @section('content')
 
+
+@if (!empty($success))
+  <h3>{{ $success }}</h3>
+@endif
+
   @if ($errors->any())
 
     <h3>Debe llenar todos los campos</h3>

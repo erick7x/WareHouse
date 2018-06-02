@@ -33,8 +33,8 @@ class WarehouseController extends Controller
         'unity' => $data['unity'],
         'price' => $data['price'],
       ]);
-
-      return view('Items/addItem');
+      $success="Artículo agregado correctamente";
+      return view('Items/addItem', compact('success'));
 
     }
 
@@ -50,6 +50,11 @@ class WarehouseController extends Controller
         $item->unity = $_REQUEST['unity'];
         $item->price = $_REQUEST['price'];
         $item->save();
+
+        $items = Item::all();
+        $updateSuccess="Producto actualizado correctamente";
+        return view('Items/showItems', compact('items','updateSuccess'));
+        
       }else {
         $id = $_REQUEST['id'];
         $item= Item::find($id);
@@ -60,9 +65,7 @@ class WarehouseController extends Controller
 
 
 
-      $items = Item::all();
-      $updateSuccess="Producto actualizado correctamente";
-      return view('Items/showItems', compact('items','updateSuccess'));
+
 
     }
 
@@ -91,5 +94,27 @@ class WarehouseController extends Controller
       return view('Items/showItems', compact('items'));
 
     }
+
+
+    public function addCategory(){
+
+
+      return view('Catalogue/addCategory');
+    }
+
+    public function storeCategory(){
+
+
+      $data = Request()->validate([
+        'categoryName' => ['required' , 'unique:categories,categoryName'],
+        'numberCat' => ['required' , 'unique:categories,numberCat']
+
+      ]);
+
+      $success="Categoria agregada correctamente";
+      return view('Catalogue/addCategory', compact('success'));
+    }
+
+
 
 }
