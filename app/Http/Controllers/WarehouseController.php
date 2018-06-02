@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Item;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\DB;
+
 
   //Take the control of the Warehouse
 class WarehouseController extends Controller
@@ -54,7 +56,7 @@ class WarehouseController extends Controller
         $items = Item::all();
         $updateSuccess="Producto actualizado correctamente";
         return view('Items/showItems', compact('items','updateSuccess'));
-        
+
       }else {
         $id = $_REQUEST['id'];
         $item= Item::find($id);
@@ -111,8 +113,22 @@ class WarehouseController extends Controller
 
       ]);
 
+      DB::table('categories')->insert([
+        'id' => null,
+        'categoryName' => $data['categoryName'],
+        'numberCat' => $data['numberCat'],
+        ]);
+
+
+
       $success="Categoria agregada correctamente";
       return view('Catalogue/addCategory', compact('success'));
+    }
+
+    public function showCategories(){
+
+      $categories = DB::table('categories')->select('id','categoryName', 'numberCat')->get();
+      return view('Catalogue/showCategories', compact('categories'));
     }
 
 

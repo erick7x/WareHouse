@@ -26,3 +26,4 @@ Route::get('/store', 'WarehouseController@addItem');
 Route::get('/addCategory', 'WarehouseController@addCategory');
 Route::post('/storeCategory', 'WarehouseController@storeCategory');
 Route::get('/storeCategory', 'WarehouseController@addCategory');
+Route::get('/showCategories', 'WarehouseController@showCategories');
