@@ -26,7 +26,7 @@
           <td>{{ $category->numberCat }}</td>
 
           <td>
-            <form action="editItem" method="post">
+            <form action="editCategory" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{ $category->id }}">
                 <button type="submit"> Editar </button>
