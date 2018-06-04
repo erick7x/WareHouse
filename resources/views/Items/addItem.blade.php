@@ -24,6 +24,7 @@
           <input class="form-control" name="unity" type="text" value="{{ old('unity') }}" /><br/>
           <label>Precio:</label><br>
           <input class="form-control" name="price" type="number" value="{{ old('price') }}" /><br/>
+          <a href="index.php"><input class="btn btn-danger" type="button" value="Cancelar"></a>
           <input class="btn btn-success" type="submit" />
         </div>
       </form>
