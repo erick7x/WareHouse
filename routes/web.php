@@ -11,20 +11,23 @@
 |
 */
 
+//Warehouse
 Route::get('/', 'WarehouseController@index');
 
 //items
-Route::get('/addItem', 'WarehouseController@addItem');
-Route::get('/showItems', 'WarehouseController@showItems');
-Route::post('/editItem', 'WarehouseController@editItem');
-Route::post('/updateItem', 'WarehouseController@updateItem');
-Route::post('/deleteItem', 'WarehouseController@deleteItem');
-Route::post('/store', 'WarehouseController@store');
-Route::get('/store', 'WarehouseController@addItem');
+Route::get('/addItem', 'ItemController@addItem');
+Route::get('/showItems', 'ItemController@showItems');
+Route::post('/editItem', 'ItemController@editItem');
+Route::post('/updateItem', 'ItemController@updateItem');
+Route::post('/deleteItem', 'ItemController@deleteItem');
+Route::post('/store', 'ItemController@store');
+Route::get('/store', 'ItemController@addItem');
 
 //catalogue
-Route::get('/addCategory', 'WarehouseController@addCategory');
-Route::post('/storeCategory', 'WarehouseController@storeCategory');
-Route::get('/storeCategory', 'WarehouseController@addCategory');
-Route::get('/showCategories', 'WarehouseController@showCategories');
-Route::post('/editCategory', 'WarehouseController@editCategory');
+Route::get('/addCategory', 'CatalogueController@addCategory');
+Route::post('/storeCategory', 'CatalogueController@storeCategory');
+Route::get('/storeCategory', 'CatalogueController@addCategory');
+Route::get('/showCategories', 'CatalogueController@showCategories');
+Route::post('/editCategory', 'CatalogueController@editCategory');
+Route::post('/updateCategory', 'CatalogueController@updateCategory');
+Route::post('/deleteCategory', 'CatalogueController@deleteCategory');

@@ -3,7 +3,7 @@
 @section('content')
 
   @if (!empty($error))
-    <h3>Debe llenar todos los campos</h3>
+    {{ $error }}
   @endif
 
   <form action="updateCategory" method="post" >

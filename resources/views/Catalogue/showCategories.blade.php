@@ -3,8 +3,8 @@
 
 
 @section('content')
-@if (!empty($updateSuccess))
-  {{ $updateSuccess }}
+@if (!empty($success))
+  {{ $success }}
 
 @endif
 
@@ -30,6 +30,13 @@
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{ $category->id }}">
                 <button type="submit"> Editar </button>
+            </form>
+          </td>
+          <td>
+            <form action="deleteCategory" method="post">
+                {{ csrf_field() }}
+                <input type="hidden" name="id" value="{{ $category->id }}">
+                <button type="submit"> Eliminar </button>
             </form>
           </td>
 
