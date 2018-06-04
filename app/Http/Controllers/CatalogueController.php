@@ -101,11 +101,19 @@ class CatalogueController extends Controller
       public function deleteCategory()
       {
         $id = $_REQUEST['id'];
-        DB::table('categories')->where('id', '=', $id)->delete(); 
+        DB::table('categories')->where('id', '=', $id)->delete();
 
 
         $categories = DB::table('categories')->select('id','categoryName', 'numberCat')->get();
         return view('Catalogue/showCategories', compact('categories'));
+      }
+
+
+
+      public function addSubCategory(){
+
+        $categories = DB::table('categories')->select('id','categoryName', 'numberCat')->get();
+        return view('Catalogue/addSubCategory', compact('categories'));
       }
 
 }

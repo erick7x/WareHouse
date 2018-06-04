@@ -31,3 +31,6 @@ Route::get('/showCategories', 'CatalogueController@showCategories');
 Route::post('/editCategory', 'CatalogueController@editCategory');
 Route::post('/updateCategory', 'CatalogueController@updateCategory');
 Route::post('/deleteCategory', 'CatalogueController@deleteCategory');
+
+//subcategory
+Route::get('/addSubCategory', 'CatalogueController@addSubCategory');
