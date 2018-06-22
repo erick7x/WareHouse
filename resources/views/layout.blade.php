@@ -22,9 +22,7 @@
                   <a href="addSubCategory">Agregar subcategoria al catálogo de partida</a>
                   <a href="showSubCategories">Mostrar sub categorias del catálogo de partida</a>
                   <a href="addDescription">Agregar descripción gasto al catálogo de partida</a>
-                  <a href="showDescriptions">Mostrar descripciones de Gastos del catálogo de partida</a>
-                  <a href="addItem">Agregar artículo</a>
-                  <a href="showItems">Mostrar artículos</a>
+                  <a href="showDescriptions">Mostrar descripciones de Gastos del catálogo de partida</a>                                
               </div>
 
             <!-- Articulo -->
