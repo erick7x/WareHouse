@@ -19,6 +19,13 @@ class WarehouseController extends Controller
 
 
 
-
+    public function editCategory(){
+        $id = $_REQUEST['id'];
+        $Category = DB::table('categories')
+        ->select('id','categoryName', 'numberCat')
+        ->where('id', $id)
+        ->get();
+        return view('Catalogue/editCategory', compact('Category'));
+    }
 
 }

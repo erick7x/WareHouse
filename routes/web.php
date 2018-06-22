@@ -24,6 +24,7 @@ Route::post('/store', 'ItemController@store');
 Route::get('/store', 'ItemController@addItem');
 
 //catalogue
+<<<<<<< HEAD
 Route::get('/addCategory', 'CatalogueController@addCategory');
 Route::post('/storeCategory', 'CatalogueController@storeCategory');
 Route::get('/storeCategory', 'CatalogueController@addCategory');
@@ -47,3 +48,10 @@ Route::get('/showDescriptions', 'CatalogueController@showDescriptions');
 Route::post('/updateDescription', 'CatalogueController@updateDescription');
 Route::post('/editDescription', 'CatalogueController@editDescription');
 Route::post('/deleteDescription', 'CatalogueController@deleteDescription');
+=======
+Route::get('/addCategory', 'WarehouseController@addCategory');
+Route::post('/storeCategory', 'WarehouseController@storeCategory');
+Route::get('/storeCategory', 'WarehouseController@addCategory');
+Route::get('/showCategories', 'WarehouseController@showCategories');
+Route::post('/editCategory', 'WarehouseController@editCategory');
+>>>>>>> c73affbbd1b400ade421164494935a2481980cf8
