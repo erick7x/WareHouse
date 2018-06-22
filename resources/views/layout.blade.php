@@ -17,10 +17,14 @@
                 <a href="#">Catálogo de partida</a>
               </li>
               <div class="dropdown-content">
-                <a href="addCategory">Agregar categoria</a>
-                <a href="showCategories">Mostrar categorias</a>
-                <a href="addSubCategory">Agregar subcategoria</a>
-                <a href="addDescripcion">Agregar descripción gasto</a>
+                  <a href="addCategory">Agregar categoria al catálogo de partida</a>
+                  <a href="showCategories">Mostrar categorias del catálogo de partida</a>
+                  <a href="addSubCategory">Agregar subcategoria al catálogo de partida</a>
+                  <a href="showSubCategories">Mostrar sub categorias del catálogo de partida</a>
+                  <a href="addDescription">Agregar descripción gasto al catálogo de partida</a>
+                  <a href="showDescriptions">Mostrar descripciones de Gastos del catálogo de partida</a>
+                  <a href="addItem">Agregar artículo</a>
+                  <a href="showItems">Mostrar artículos</a>
               </div>
 
             <!-- Articulo -->
