@@ -8,38 +8,37 @@
 
 @endif
 
-  <table>
-    <thead>
-      <th>
-        <td>Nombre del artículo:</td>
-        <td>Cantidad:</td>
-        <td>Unidad:</td>
-        <td>Precio:</td>
-        <td></td>
-
-      </th>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Nombre del artículo:</th>
+        <th>Cantidad:</th>
+        <th>Unidad:</th>
+        <th>Precio:</th>
+        <th></th>
+        <th></th>
+      </tr>
     </thead>
-    <tbody>
 
+    <tbody>
       @foreach ($items as $item)
         <tr>
-          <td></td>
-          <td>{{ $item->itemName }}</td>
-          <td>{{ $item->quantity }}</td>
-          <td>{{ $item->unity }}</td>
-          <td>{{ $item->price }}</td>
-          <td>
+          <td scope="col">{{ $item->itemName }}</td>
+          <td scope="col">{{ $item->quantity }}</td>
+          <td scope="col">{{ $item->unity }}</td>
+          <td scope="col">{{ $item->price }}</td>
+          <td scope="col">
             <form action="editItem" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{ $item->id }}">
-                <button type="submit"> Editar </button>
+                <button type="submit" class="btn btn-warning"> Editar </button>
             </form>
           </td>
           <td>
             <form action="deleteItem" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{ $item->id }}">
-                <button type="submit"> Eliminar </button>
+                <button type="submit" class="btn btn-danger"> Eliminar </button>
             </form>
          </td>
         </tr>
