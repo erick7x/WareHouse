@@ -8,25 +8,25 @@
     <h3>{{ $success }}</h3>
   @endif
 
-    @if ($errors->any())
+  @if (!empty($error))
+    <h3>{{ $error }}</h3>
+  @endif
 
-      <h3>Debe llenar todos los campos</h3>
-
-    @endif
+  
 
   <form method="post" action="storeSubCategory">
     {{ csrf_field() }}
       <label>Nombre de la categoria:</label><br>
-      <select class="" name="categoryName">
+      <select name="idCategory">
         @foreach ($categories as $category)
-          <option value="{{ $category->categoryName }}">{{ $category->categoryName }}</option>
+          <option value="{{ $category->id }}">{{ $category->categoryName }}</option>
         @endforeach
 
       </select><br>
       <label>Nombre de la sub categoria:</label><br>
       <input type="text" name="subCategoryName" value="{{ old('subCategoryName') }}"><br>
       <label>Número:</label><br>
-      <input name="numberCat" type="number" value="{{ old('numberCat') }}" /><br/>
+      <input name="startNumberSubCat" type="number" value="{{ old('startNumberSubCat') }}" /><br/>
       <input type="submit" />
   </form>
 

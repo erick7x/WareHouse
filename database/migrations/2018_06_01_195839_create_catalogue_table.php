@@ -32,7 +32,7 @@ class CreateCatalogueTable extends Migration
       Schema::create('descriptionExpenses', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('idSubCategory')->unsigned();
-          $table->string('descriptionExpense', 100);
+          $table->string('description', 100);
           $table->integer('numberId')->unsigned();
           $table->foreign('idSubCategory')->references('id')->on('subcategories')->onDelete('cascade');
 

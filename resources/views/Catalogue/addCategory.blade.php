@@ -8,11 +8,9 @@
     <h3>{{ $success }}</h3>
   @endif
 
-    @if ($errors->any())
-
-      <h3>Debe llenar todos los campos</h3>
-
-    @endif
+  @if (!empty($error))
+    <h3>{{ $error }}</h3>
+  @endif
 
   <form method="post" action="storeCategory">
     {{ csrf_field() }}

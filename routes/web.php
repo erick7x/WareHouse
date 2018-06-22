@@ -34,3 +34,16 @@ Route::post('/deleteCategory', 'CatalogueController@deleteCategory');
 
 //subcategory
 Route::get('/addSubCategory', 'CatalogueController@addSubCategory');
+Route::post('/storeSubCategory', 'CatalogueController@storeSubCategory');
+Route::get('/showSubCategories', 'CatalogueController@showSubCategories');
+Route::post('/editSubCategory', 'CatalogueController@editSubCategory');
+Route::post('/updateSubCategory', 'CatalogueController@updateSubCategory');
+Route::post('/deletesubCategory', 'CatalogueController@deletesubCategory');
+
+//Description
+Route::get('/addDescription', 'CatalogueController@addDescription');
+Route::post('/storeDescription', 'CatalogueController@storeDescription');
+Route::get('/showDescriptions', 'CatalogueController@showDescriptions');
+Route::post('/updateDescription', 'CatalogueController@updateDescription');
+Route::post('/editDescription', 'CatalogueController@editDescription');
+Route::post('/deleteDescription', 'CatalogueController@deleteDescription');
