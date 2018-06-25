@@ -14,6 +14,7 @@
         <th>Nombre:</th>
         <th>Número:</th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -32,7 +33,7 @@
             <form action="deleteCategory" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{ $category->id }}">
-                <button type="submit"> Eliminar </button>
+                <button type="submit" class="btn btn-danger"> Eliminar </button>
             </form>
           </td>
 

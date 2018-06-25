@@ -8,35 +8,35 @@
 
 @endif
 
-  <table>
-    <thead>
-      <th>
-        <td>Nombre:</td>
-        <td>Número:</td>
-
-
-      </th>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Nombre:</th>
+        <th>Número:</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
     </thead>
     <tbody>
 
       @foreach ($subCategories as $subCategory)
         <tr>
-          <td></td>
-          <td>{{ $subCategory->subCategoryName }}</td>
-          <td>{{ $subCategory->startNumberSubCat }}</td>
+          <td scope="col">{{ $subCategory->subCategoryName }}</td>
+          <td scope="col">{{ $subCategory->startNumberSubCat }}</td>
 
           <td>
             <form action="editSubCategory" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{ $subCategory->id }}">
-                <button type="submit"> Editar </button>
+                <button type="submit" class="btn btn-warning"> Editar </button>
             </form>
           </td>
           <td>
             <form action="deletesubCategory" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{ $subCategory->id }}">
-                <button type="submit"> Eliminar </button>
+                <button type="submit" class="btn btn-danger"> Eliminar </button>
             </form>
           </td>
 
