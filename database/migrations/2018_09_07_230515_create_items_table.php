@@ -14,12 +14,16 @@ class CreateItemsTable extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
           $table->increments('id');
+          $table->integer('idDescription')->unsigned();
           $table->string('itemName', 50)->unique();
           $table->integer('quantity')->unsigned();
           $table->string('unity', 50);
           $table->integer('price');
           $table->timestamps();
+          $table->foreign('idDescription')->references('id')->on('descriptionExpenses');
+
         });
     }
 

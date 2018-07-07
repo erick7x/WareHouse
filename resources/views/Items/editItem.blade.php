@@ -9,6 +9,8 @@
   <form action="updateItem" method="post" >
     {{ csrf_field() }}
     <div "form-group">
+      <label>Id descripción del artículo:</label><br>
+      <input class="form-control" name="description" type="text" value="{{ $item->description }}" /><br/>
       <input class="form-control" type="hidden" name="id" value="{{ $item->id }}">
       <label>Nombre del artículo:</label><br>
       <input class="form-control" name="itemName" type="text" value="{{ $item->itemName }}" /><br/>

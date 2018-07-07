@@ -14,6 +14,7 @@ class ItemController extends Controller
 
     public function store(){
       $data = Request()->validate([
+        'idDescription' => 'required',
         'itemName' => ['required' , 'unique:items,itemName'],
         'quantity' => 'required',
         'unity' => 'required',
@@ -22,6 +23,7 @@ class ItemController extends Controller
 
       Item::create([
         'id' => null,
+        'idDescription' => $data['idDescription'],
         'itemName' => $data['itemName'],
         'quantity' => $data['quantity'],
         'unity' => $data['unity'],
@@ -35,10 +37,11 @@ class ItemController extends Controller
     public function updateItem(){
 
 
-      if (strlen($_REQUEST['itemName'])!=0 && strlen($_REQUEST['quantity'])!=0 && strlen($_REQUEST['unity'])!=0 && strlen($_REQUEST['price'])!=0) {
+      if (strlen($_REQUEST['description'])!=0 && strlen($_REQUEST['itemName'])!=0 && strlen($_REQUEST['quantity'])!=0 && strlen($_REQUEST['unity'])!=0 && strlen($_REQUEST['price'])!=0) {
 
         $id=$_REQUEST['id'];
         $item = Item::find($id);
+        $item->description = $_REQUEST['description'];
         $item->itemName = $_REQUEST['itemName'];
         $item->quantity = $_REQUEST['quantity'];
         $item->unity = $_REQUEST['unity'];

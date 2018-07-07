@@ -7,15 +7,18 @@
   <h3>{{ $success }}</h3>
 @endif
 
-  @if ($errors->any())
+@if (!empty($error))
+  <h3>{{ $error }}</h3>
+@endif
 
-    <h3>Debe llenar todos los campos</h3>
 
-  @endif
+
     <div class="container">
       <form method="post" action="store">
         {{ csrf_field() }}
         <div class="form-group">
+          <label>Id descripción del artículo:</label><br>
+          <input class="form-control" name="idDescription" type="text" value="{{ old('idDescription') }}" /><br/>
           <label>Nombre del artículo:</label><br>
           <input class="form-control" name="itemName" type="text" value="{{ old('itemName') }}" /><br/>
           <label>Cantidad:</label><br>

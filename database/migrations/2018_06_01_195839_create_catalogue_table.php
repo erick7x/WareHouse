@@ -15,12 +15,14 @@ class CreateCatalogueTable extends Migration
     {
 
       Schema::create('categories', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
           $table->increments('id');
           $table->string('categoryName', 100)->unique();
           $table->integer('numberCat')->unsigned();
       });
 
       Schema::create('subcategories', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
           $table->increments('id');
           $table->integer('idCategory')->unsigned();
           $table->string('subCategoryName', 100);
@@ -30,6 +32,7 @@ class CreateCatalogueTable extends Migration
       });
 
       Schema::create('descriptionExpenses', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
           $table->increments('id');
           $table->integer('idSubCategory')->unsigned();
           $table->string('description', 100);
